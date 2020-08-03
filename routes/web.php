@@ -22,8 +22,16 @@ Route::get('admin', function () {
 });
 
 Route::get('admin2', function () {
-    return view('admin');
+    return view('dashboard.main');
 });
+
+// ! route to get the first step of adding the truck. 
+
+Route::get('addHorse','TruckController@addHorse');
+
+// ! route to post horse data. 
+
+Route::post('/postHorseData','TruckController@postHorseData');
 
 
 

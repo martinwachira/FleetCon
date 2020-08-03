@@ -1,3 +1,5 @@
+@extends('../admin')
+@section('section')
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -80,3 +82,4 @@
 
 <!-- PAGE SCRIPTS -->
 <script src="{{asset('/bower_components/admin-lte/dist/js/pages/dashboard2.js')}}"></script>
+@endsection

@@ -82,4 +82,27 @@ class TruckController extends Controller
     {
         //
     }
+
+    // ! this is the function to get the first step os adding the truck. 
+    public function addHorse(){
+        return view('Truck.AddTruck.addHorse');
+    }
+
+    // ! this is the method to post the horse data. 
+
+    public function postHorseData(Request $request){
+
+        // ! initialize array to hold data.
+        $horseDetails = [];
+        $postedData = $request->all();
+        foreach($postedData as $key => $data){
+            if ($key != '_token') {
+                # code...
+                $horseDetails[$key] = $data;
+            }                        
+        }
+
+        return view('Truck.AddTruck.addTrailer')->with(['horseDetails'=>$horseDetails]);
+
+    }
 }
