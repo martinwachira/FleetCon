@@ -4,7 +4,7 @@
     <a href="index3.html" class="brand-link">
       <img src="{{asset('/bower_components/admin-lte/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Fleetcon</span>
+      <span class="brand-text font-weight-light">{{config('app.name')}}</span>
     </a>
 
     <!-- Sidebar -->
@@ -89,15 +89,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
+                <a href="/driver/create-driver" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>General</p>
+                  <p>Add Driver</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="pages/UI/ribbons.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Ribbons</p>
+                  <p>View Drivers</p>
                 </a>
               </li>
             </ul>

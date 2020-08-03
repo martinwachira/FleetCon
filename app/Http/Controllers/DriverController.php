@@ -33,9 +33,12 @@ class DriverController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Driver $driver)
     {
-        //
+        $data = $request->all();
+        $driver->fill($data)->save();
+
+        return redirect('/admin')->with('success', 'Driver added');
     }
 
     /**
