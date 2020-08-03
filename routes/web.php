@@ -18,10 +18,6 @@ Route::get('/', function () {
 });
 
 Route::get('admin', function () {
-    return view('admin_template');
-});
-
-Route::get('admin2', function () {
     return view('admin');
 });
 
