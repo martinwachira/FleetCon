@@ -30,3 +30,7 @@ Route::resource('/driver', 'DriverController');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
