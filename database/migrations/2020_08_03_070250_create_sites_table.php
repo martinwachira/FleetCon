@@ -21,7 +21,7 @@ class CreateSitesTable extends Migration
             $table->text("address");
             $table->text('gps_coordinates');
             $table->text("product");
-            $table->integer("type_of_site");
+            $table->text("type_of_site");
         });
     }
 

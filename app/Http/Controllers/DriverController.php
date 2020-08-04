@@ -14,7 +14,10 @@ class DriverController extends Controller
      */
     public function index()
     {
-        //
+        $drivers = Driver::orderBy('created_at')->paginate(10);
+
+        return view('driver.view')->with('drivers', $drivers);
+        // return $drivers;
     }
 
     /**
@@ -33,9 +36,12 @@ class DriverController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Driver $driver)
     {
-        //
+        $data = $request->all();
+        $driver->fill($data)->save();
+
+        return redirect('/drivers')->with('success', 'Driver added');
     }
 
     /**

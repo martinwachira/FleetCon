@@ -14,7 +14,9 @@ class SiteController extends Controller
      */
     public function index()
     {
-        //
+        $sites = Site::orderBy('created_at')->paginate(10);
+
+        return view('site.view')->with('sites', $sites);
     }
 
     /**
@@ -33,9 +35,12 @@ class SiteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Site $site)
     {
-        //
+        $data = $request->all();
+        $site->fill($data)->save();
+
+        return redirect('/sites')->with('success', 'Store added');
     }
 
     /**

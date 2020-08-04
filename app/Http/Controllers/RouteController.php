@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Route;
+use App\Site;
 use Illuminate\Http\Request;
 
 class RouteController extends Controller
@@ -14,9 +15,18 @@ class RouteController extends Controller
      */
     public function index()
     {
-        //
+        $routes = Route::OrderBy('created_at')->paginate(10);
+        $loadings = Site::all();
+        // return view('route.view')->with('routes', $routes);
+        return view('route.view', compact('routes', 'loadings'));
     }
 
+    public function getSites()
+    {
+        // $loadings = Site::all()->where('type', 'Loading');
+        $loadings = Site::all();
+        return view('route.view')->with('routes', $loadings);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -33,9 +43,12 @@ class RouteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Route $route)
     {
-        //
+        $data = $request->all();
+        $route->fill($data)->save();
+
+        return redirect('/routes')->with('success', 'Route added');
     }
 
     /**
