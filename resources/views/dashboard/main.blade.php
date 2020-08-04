@@ -1,6 +1,11 @@
+
 @extends('../admin')
 @section('section')
-    <!-- Main content -->
+
+@extends('layouts.admin')
+
+@section('content')
+
     <section class="content">
       <div class="container-fluid">
         <!-- Info boxes -->
@@ -69,6 +74,7 @@
         <!-- /.row -->
       </div><!--/. container-fluid -->
     </section>
+    @endsection()
     <!-- /.content -->
 
 <!-- PAGE PLUGINS -->
