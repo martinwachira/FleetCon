@@ -29,6 +29,7 @@
     @include('helpers/navbreadcrumb')
 
 
+    @yield('content')
 
   </div>
   <!-- /.content-wrapper -->

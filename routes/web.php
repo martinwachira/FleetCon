@@ -21,8 +21,12 @@ Route::get('admin', function () {
     return view('admin');
 });
 
-Route::get('create-driver', function () {
-    return view('driver');
+Route::get('/main', function () {
+    return view('dashboard.main');
+});
+
+Route::get('/add-driver', function () {
+    return view('driver.create');
 });
 
 // Routes here
