@@ -22,19 +22,21 @@ Route::get('admin', function () {
 });
 
 Route::get('/main', function () {
-    return view('dashboard.main');
+    return view('dashboard/main');
 });
 
 Route::get('/add-driver', function () {
-    return view('driver.create');
+    return view('driver/create');
 });
 
-// Routes here
-Route::resource('/driver', 'DriverController');
-
-
-
+Route::get('drivers', function () {
+    return view('driver/view');
+});
 
 Auth::routes();
+
+// Routes here
+Route::resource('/drivers', 'DriverController');
+Route::post('add-driver', 'DriverController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');

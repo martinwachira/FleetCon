@@ -1,37 +1,53 @@
 @extends('layouts.admin')
 
 @section('content')
+<html>
+    <head>
+     <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">   
+    </head>
+</html>
 
 <div class="card card-info col-md-8" style="margin-left:240px">
     <div class="info-box mb-3">
         <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-user-plus"></i></span>
         <div class="info-box-content">
-            <!-- <div class="card-header"> -->
                 <h3 class="card-title">Add a new Driver</h3>
-            <!-- </div> -->
         </div>
         <br>
     </div>
-    <form class="form-horizontal col-md-8" style="margin-left:100px">
+    {!! Form::open(['action' => 'DriverController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+    @csrf
+    <form class="form-horizontal col-md-9" style="margin-left:100px">
         <div class="card-body">
             <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="inputName" name="name" placeholder="Driver's Names">
+                </div>
+                <label for="inputId" class="col-sm-2 col-form-label">ID Number</label>
+                <div class="col-sm-3">
+                    <input type="number" class="form-control" id="inputId" name="id_number" placeholder="Driver's Id">
+                </div>
+            </div>
+            <div class="form-group row">                
+            </div>
+            <div class="form-group row">
+                <label for="inputPhone" class="col-sm-2 col-form-label">Phone</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="inputPhone" name="phone_number" placeholder="Phone">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                <label for="inputSalary" class="col-sm-2 col-form-label">Salary</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="inputSalary" name="driver_salary" placeholder="Salary">
                 </div>
             </div>
             <div class="form-group row">
-                <div class="offset-sm-2 col-sm-10">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck2">
-                        <label class="form-check-label" for="exampleCheck2">Remember me</label>
-                    </div>
+                <label for="inputLoadBonus" class="col-sm-2 col-form-label">Load Bonus (%)</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" id="inputLoadBonus" name="load_bonus" placeholder="Load Bonus">
                 </div>
             </div>
         </div>
