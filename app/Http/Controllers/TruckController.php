@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Truck;
 use Illuminate\Http\Request;
+use Session;
 
 class TruckController extends Controller
 {
@@ -102,7 +103,77 @@ class TruckController extends Controller
             }                        
         }
 
-        return view('Truck.AddTruck.addTrailer')->with(['horseDetails'=>$horseDetails]);
+        // ! creating session to hold the horse data. 
+
+            Session::put('horseDetailsSession', $horseDetails);      
+
+        return view('Truck.AddTruck.addTrailer');
 
     }
+
+    // ! this is the function that is used to get the AddingTrailer View.
+    public function gettingAddTrailer(){
+        return view('Truck.AddTruck.addTrailer');
+    }
+
+    // ! this is the function to post the addTrailer Data. 
+
+    public function postAddTrailerData(Request $request){
+
+        $trailerDetails = [];
+        $postedData = $request->all();        
+        $mergingHorseAndTrailerDetails = Session::get('horseDetailsSession');
+        foreach($postedData as $key => $data){
+            if ($key != '_token') {
+                # code...
+                $trailerDetails[$key] = $data;
+                $mergingHorseAndTrailerDetails[$key] = $data;
+            }                        
+        }
+    
+        // ! creating session to hold the trailer data. 
+
+        Session::put('TrailerDetailsSession', $trailerDetails);
+
+        // ! creating the session that holds both the trailer and the horse details.
+        Session::put('HorseAndTrailerDetailsSession', $mergingHorseAndTrailerDetails);
+
+        return view('Truck.AddTruck.addFinancialData');
+
+    }
+
+    public function postFinancial(Request $request){
+        
+        $postedData = $request->all();
+        // dd($postedData);         
+        $allTruckData = Session::get('HorseAndTrailerDetailsSession');
+
+        foreach($postedData as $key => $data){
+            if ($key != '_token') {
+                # code...
+                
+                $allTruckData[$key] = $data;
+            }                        
+        }
+
+        // ! creating Truck object. 
+        $newTruck = new Truck();
+
+        foreach($allTruckData as $key => $data){
+
+            $newTruck->$key = $data;
+
+        }
+
+        $newTruck->save();
+        
+        // ! forgetting all sessions. 
+        Session::forget('HorseAndTrailerDetailsSession');
+        Session::forget('TrailerDetailsSession');
+        Session::forget('horseDetailsSession');
+        
+        return view('Truck.AddTruck.addHorse');
+    }
+
+    
 }

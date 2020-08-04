@@ -33,5 +33,16 @@ Route::get('addHorse','TruckController@addHorse');
 
 Route::post('/postHorseData','TruckController@postHorseData');
 
+// ! route to post trailer data. 
+Route::post('/postTrailerData','TruckController@postAddTrailerData');
+
+// ! route to get trailer. 
+Route::get('addTrailer','TruckController@gettingAddTrailer');
+
+// ! posting financial data. 
+
+Route::post('/postFinancialData','TruckController@postFinancial');
+
+
 
 
