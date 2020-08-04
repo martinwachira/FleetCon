@@ -33,10 +33,32 @@ Route::get('drivers', function () {
     return view('driver/view');
 });
 
+Route::get('/add-route', function () {
+    return view('route/create');
+});
+
+Route::get('routes', function () {
+    return view('route/view');
+});
+
+Route::get('/add-site', function () {
+    return view('site/create');
+});
+
+Route::get('sites', function () {
+    return view('site/view');
+});
+
 Auth::routes();
 
 // Routes here
 Route::resource('/drivers', 'DriverController');
 Route::post('add-driver', 'DriverController@store');
+
+Route::resource('/routes', 'RouteController');
+Route::post('add-route', 'RouteController@store');
+
+Route::resource('/sites', 'SiteController');
+Route::post('add-site', 'SiteController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');
