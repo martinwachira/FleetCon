@@ -86,3 +86,7 @@ Route::resource('/sites', 'SiteController');
 Route::post('add-site', 'SiteController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
