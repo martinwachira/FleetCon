@@ -21,7 +21,7 @@
     {!! Form::open(['action' => 'RouteController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     @csrf
 
-    {!! Form::open(['action' => 'RouteController@index', 'method' => 'GET', 'enctype' => 'multipart/form-data']) !!}
+    {!! Form::open(['action' => 'RouteController@getSites', 'method' => 'GET', 'enctype' => 'multipart/form-data']) !!}
     @csrf
     <form class="form-horizontal col-md-9" style="margin-left:100px">
         <div class="card-body">
