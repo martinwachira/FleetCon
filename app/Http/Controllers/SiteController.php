@@ -74,7 +74,10 @@ class SiteController extends Controller
      */
     public function update(Request $request, Site $site)
     {
-        //
+        $data = $request->all();
+        $site->fill($data)->save();
+
+        return redirect('/sites')->with('success', 'Site Updated');
     }
 
     /**
@@ -83,8 +86,15 @@ class SiteController extends Controller
      * @param  \App\Site  $site
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Site $site)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->idSite;
+        $sites = Site::where('id',$id)->get();          
+        foreach ($sites as $site) {
+            # code...
+            $site->delete();
+        }    
+        // return back();
+        return redirect('/sites')->with('success', 'Site Deleted');
     }
 }

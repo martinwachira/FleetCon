@@ -48,9 +48,23 @@ Route::post('/postFinancialData','TruckController@postFinancial');
 
 Route::resource('trucks', 'TruckController');
 
+
 // ! route to delete truck. 
 
 Route::post('deleteTruck','TruckController@destroy');
+
+// ! edit driver
+Route::put('/updateDriver', 'DriverController@update');
+
+// ! edit site
+Route::put('/updateSite', 'SiteController@update');
+
+// ! route to delete a driver
+Route::post('deleteDriver','DriverController@destroy');
+
+// ! route to delete a site
+
+Route::post('deleteSite','SiteController@destroy');
 
 Route::get('/main', function () {
     return view('dashboard/main');

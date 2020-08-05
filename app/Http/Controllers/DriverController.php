@@ -75,7 +75,10 @@ class DriverController extends Controller
      */
     public function update(Request $request, Driver $driver)
     {
-        //
+        $data = $request->all();
+        $driver->fill($data)->save();
+
+        return redirect('/drivers')->with('success', 'Driver Updated');
     }
 
     /**
@@ -84,8 +87,15 @@ class DriverController extends Controller
      * @param  \App\Driver  $driver
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Driver $driver)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->idDriver;
+        $drivers = Driver::where('id',$id)->get();          
+        foreach ($drivers as $driver) {
+            # code...
+            $driver->delete();
+        }    
+        // return back();
+        return redirect('/drivers')->with('success', 'Driver Removed');
     }
 }
