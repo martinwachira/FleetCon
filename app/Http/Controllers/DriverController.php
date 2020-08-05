@@ -14,10 +14,10 @@ class DriverController extends Controller
      */
     public function index()
     {
+
         $drivers = Driver::orderBy('created_at')->paginate(10);
 
         return view('driver.view')->with('drivers', $drivers);
-        // return $drivers;
     }
 
     /**
