@@ -24,8 +24,10 @@ class RouteController extends Controller
     public function getSites()
     {
         // $loadings = Site::all()->where('type', 'Loading');
-        $loadings = Site::all();
-        return view('route.view')->with('routes', $loadings);
+        $loadings = Site::where('type_of_site', 'Loading')->get();
+        $offloadings = Site::where('type_of_site', 'Offloading')->get();
+        return $loadings;
+        // return view('route.view')->with('loadings', 'offloadings');
     }
     /**
      * Show the form for creating a new resource.

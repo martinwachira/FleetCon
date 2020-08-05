@@ -88,6 +88,7 @@ Route::post('add-driver', 'DriverController@store');
 
 Route::resource('/routes', 'RouteController');
 Route::post('add-route', 'RouteController@store');
+Route::get('getSites', 'RouteController@getSites');
 
 
 Route::resource('/sites', 'SiteController');
