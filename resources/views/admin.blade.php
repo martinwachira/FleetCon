@@ -15,6 +15,9 @@
   <link rel="stylesheet" href="{{asset('/bower_components/admin-lte/dist/css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="/bower_components/admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="/bower_components/admin-lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <style>
     input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -73,10 +76,36 @@ input[type=number] {
 <script src="{{asset('/bower_components/admin-lte/plugins/raphael/raphael.min.js')}}"></script>
 <script src="{{asset('/bower_components/admin-lte/plugins/jquery-mapael/jquery.mapael.min.js')}}"></script>
 <script src="{{asset('/bower_components/admin-lte/plugins/jquery-mapael/maps/usa_states.min.js')}}"></script>
+
 <!-- ChartJS -->
 <script src="{{asset('/bower_components/admin-lte/plugins/chart.js/Chart.min.js')}}"></script>
 
 <!-- PAGE SCRIPTS -->
 <script src="{{asset('/bower_components/admin-lte/dist/js/pages/dashboard2.js')}}"></script>
+
+
+<script src="/bower_components/admin-lte/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/bower_components/admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="/bower_components/admin-lte/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/bower_components/admin-lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+
+<script>
+$(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
 </body>
 </html>
