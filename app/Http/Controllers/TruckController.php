@@ -15,7 +15,9 @@ class TruckController extends Controller
      */
     public function index()
     {
-        //
+        //! getting all the trucks registered. 
+        $allTrucks = Truck::all();
+        return view('Truck.viewAllTrucks')->with(['trucks'=>$allTrucks]);
     }
 
     /**
@@ -79,9 +81,16 @@ class TruckController extends Controller
      * @param  \App\Truck  $truck
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Truck $truck)
+    public function destroy(Request $request)
     {
         //
+        $id = $request->idOfTruck;
+        $trucks = Truck::where('id',$id)->get();          
+        foreach ($trucks as $truck) {
+            # code...
+            $truck->delete();
+        }    
+        return back();
     }
 
     // ! this is the function to get the first step os adding the truck. 

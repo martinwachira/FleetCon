@@ -44,6 +44,14 @@ Route::get('addTrailer','TruckController@gettingAddTrailer');
 
 Route::post('/postFinancialData','TruckController@postFinancial');
 
+// ! route to get all the trucks. 
+
+Route::resource('trucks', 'TruckController');
+
+// ! route to delete truck. 
+
+Route::post('deleteTruck','TruckController@destroy');
+
 Route::get('/main', function () {
     return view('dashboard/main');
 });
@@ -84,5 +92,9 @@ Route::post('add-route', 'RouteController@store');
 
 Route::resource('/sites', 'SiteController');
 Route::post('add-site', 'SiteController@store');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
