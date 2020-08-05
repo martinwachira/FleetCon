@@ -49,7 +49,7 @@
                 </a>
               </li>              
               <li class="nav-item">
-                <a href="pages/layout/fixed-footer.html" class="nav-link">
+                <a href="/trucks" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Trucks</p>
                 </a>
