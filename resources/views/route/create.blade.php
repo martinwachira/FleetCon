@@ -20,8 +20,7 @@
     </div>
     {!! Form::open(['action' => 'RouteController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     @csrf
-
-    {!! Form::open(['action' => 'RouteController@getSites', 'method' => 'GET', 'enctype' => 'multipart/form-data']) !!}
+    
     @csrf
     <form class="form-horizontal col-md-9" style="margin-left:100px">
         <div class="card-body">
@@ -32,7 +31,7 @@
                         <option value="">Select Loading Site</option>
                         @if($loadings ?? '')
                         @foreach($loadings ?? '' as $loading)
-                        <option value="{{$site->name}}">{{$loading->name}}</option>
+                        <option value="{{$loading->id}}">{{$loading->name}}</option>
                         @endforeach
                         @endif
                     </select>
@@ -40,11 +39,11 @@
                 
             <label for="inputOffLoadingSite" class="col-sm-2 col-form-label">Off-Loading Site</label>
                 <div class="col-sm-3">
-                    <select name="loading_site" id="inputLoadingSite" class="form-control">
+                    <select name="off_loading_site" id="inputLoadingSite" class="form-control">
                         <option value="">Select Loading Site</option>
                         @if($offloadings ?? '')
                         @foreach($offloadings ?? '' as $offloading)
-                        <option value="{{$site->name}}">{{$offloading->name}}</option>
+                        <option value="{{$offloading->id}}">{{$offloading->name}}</option>
                         @endforeach
                         @endif
                     </select>

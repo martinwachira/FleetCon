@@ -70,9 +70,10 @@ class TruckController extends Controller
      * @param  \App\Truck  $truck
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Truck $truck)
+    public function update(Request $request)
     {
         //
+
     }
 
     /**
@@ -184,5 +185,27 @@ class TruckController extends Controller
         return view('Truck.AddTruck.addHorse');
     }
 
-    
+    // ! function to edit the trucks. 
+
+    public function gettingEditPage($truck){
+        // ! getting the truck. 
+        
+        $trucks = Truck::where('id',$truck)->get();
+
+        return view('Truck.editTruck')->with('trucks',$trucks);
+    }
+
+    // ! update trucks. 
+
+    public function updateTruck($id,Request $request){
+
+        $trucks = Truck::where('id',$id)->get();
+
+        foreach ($trucks as $truck) {
+            # code...
+            $truck->update($request->all());
+        }
+
+        return back()->with(['update'=>true,'trucks'=>$truck]);
+    }
 }

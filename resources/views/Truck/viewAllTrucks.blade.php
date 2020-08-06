@@ -55,7 +55,7 @@
                   <td>
 
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-success"><i class="fas fa-edit"> Edit</i></button>
+                      <a href="editTruck/{{$truck->id}}" type="button" class="btn btn-sm btn-success"><i class="fas fa-edit"> Edit</i></a>
 
                       {{-- Modal To Edit Goes Here. --}}
 
