@@ -70,10 +70,10 @@ class TruckController extends Controller
      * @param  \App\Truck  $truck
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Truck $truck)
+    public function update(Request $request)
     {
         //
-        
+
     }
 
     /**
