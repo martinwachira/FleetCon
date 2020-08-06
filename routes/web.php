@@ -48,6 +48,13 @@ Route::post('/postFinancialData','TruckController@postFinancial');
 
 Route::resource('trucks', 'TruckController');
 
+// ! route to get the editing of a truck. 
+
+Route::get('/editTruck/{id}','TruckController@gettingEditPage');
+
+// ! updating truck. 
+
+Route::post('/updateTruck/{id}','TruckController@updateTruck');
 
 // ! route to delete truck. 
 
