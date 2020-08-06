@@ -1,7 +1,7 @@
 @extends('admin')
 @section('section')
 
-<div class="container">
+<section class="content">
     <h3>Add Trailers.</h3>
     <form action="/postTrailerData" method="POST">
         {{ csrf_field() }}
@@ -108,6 +108,6 @@
         </div>                           
     </div>
     </form>
-</div>
+</section>
 
 @endsection

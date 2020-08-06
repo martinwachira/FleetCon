@@ -15,7 +15,8 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
-                        {!! Form::open(['action' => 'SiteController@index', 'method' => 'GET', 'enctype' => 'multipart/form-data']) !!}                            @csrf
+                        {!! Form::open(['action' => 'SiteController@index', 'method' => 'GET', 'enctype' => 'multipart/form-data']) !!}
+                        @csrf
                             <thead>
                                 <tr>
                                 <th>ID</th>
