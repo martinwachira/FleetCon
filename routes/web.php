@@ -122,3 +122,28 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// ! Routes to the Reports. 
+
+Route::get('driver_performance', function () {
+    return view('Reports/driver_perfomance');
+});
+
+Route::get('fuel_usage', function () {
+    return view('Reports/fuel_usage');
+});
+
+Route::get('route_profitability', function () {
+    return view('Reports/route_profitability');
+});
+
+Route::get('truck_availability', function () {
+    return view('Reports/truck_availability');
+});
+
+Route::get('truck_revenue', function () {
+    return view('Reports/truck_revenue');
+});
+Route::get('route_revenue', function () {
+    return view('Reports/route_revenue');
+});
