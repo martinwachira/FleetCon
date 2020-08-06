@@ -73,6 +73,7 @@ class TruckController extends Controller
     public function update(Request $request, Truck $truck)
     {
         //
+        
     }
 
     /**
