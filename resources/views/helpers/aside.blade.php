@@ -159,37 +159,37 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/mailbox/mailbox.html" class="nav-link">
+                <a href="/route_revenue" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Route Revenue</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
+                <a href="/truck_revenue" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Truck Revenue</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/mailbox/read-mail.html" class="nav-link">
+                <a href="/fuel_usage" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Fuel Usage</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
+                <a href="route_profitability" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Route Profitability</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
+                <a href="/truck_availability" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Truck Availability</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
+                <a href="/driver_performance" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Driver Performance</p>
                 </a>
