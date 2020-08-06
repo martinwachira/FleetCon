@@ -98,4 +98,10 @@ class DriverController extends Controller
         // return back();
         return redirect('/drivers')->with('success', 'Driver Removed');
     }
+
+    public static function driversCount()
+    {
+        $driversC = Driver::count();
+        print($driversC);
+    }
 }

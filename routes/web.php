@@ -56,22 +56,24 @@ Route::get('/editTruck/{id}','TruckController@gettingEditPage');
 
 Route::post('/updateTruck/{id}','TruckController@updateTruck');
 
-// ! route to delete truck. 
-
-Route::post('deleteTruck','TruckController@destroy');
-
 // ! edit driver
-Route::put('/updateDriver', 'DriverController@update');
+// Route::put('/updateDriver', 'DriverController@update');
 
 // ! edit site
-Route::put('/updateSite', 'SiteController@update');
+// Route::put('/updateSite', 'SiteController@update');
+
+// ! route to delete truck. 
+Route::post('deleteTruck','TruckController@destroy');
+
 
 // ! route to delete a driver
 Route::post('deleteDriver','DriverController@destroy');
 
 // ! route to delete a site
-
 Route::post('deleteSite','SiteController@destroy');
+
+// ! route to delete a site
+Route::post('deleteRoute','RouteController@destroy');
 
 Route::get('/main', function () {
     return view('dashboard/main');
@@ -84,10 +86,6 @@ Route::get('/add-driver', function () {
 Route::get('drivers', function () {
     return view('driver/view');
 });
-
-// Route::get('/add-route', function () {
-//     return view('route/create');
-// });
 
 // ! route to get the form to add a route. 
 

@@ -1,14 +1,8 @@
-
-@extends('../admin')
-@section('section')
-
 @extends('layouts.admin')
 
 @section('content')
-
     <section class="content">
       <div class="container-fluid">
-        <!-- Info boxes -->
         <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
@@ -16,30 +10,21 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Drivers</span>
-                <span class="info-box-number">
-                  10
-                </span>
+                <span class="info-box-number">{{ \App\Http\Controllers\DriverController::driversCount() }}</span>
               </div>
-              <!-- /.info-box-content -->
             </div>
-            <!-- /.info-box -->
           </div>
-          <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Trucks</span>
-                <span class="info-box-number">41,410</span>
+                <span class="info-box-number">{{ \App\Http\Controllers\TruckController::trucksCount() }}</span>
               </div>
-              <!-- /.info-box-content -->
             </div>
-            <!-- /.info-box -->
           </div>
-          <!-- /.col -->
 
-          <!-- fix for small devices only -->
           <div class="clearfix hidden-md-up"></div>
 
           <div class="col-12 col-sm-6 col-md-3">
@@ -48,34 +33,28 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Sites</span>
-                <span class="info-box-number">760</span>
+                <span class="info-box-number">{{ \App\Http\Controllers\SiteController::sitesCount() }}</span>
               </div>
-              <!-- /.info-box-content -->
             </div>
-            <!-- /.info-box -->
           </div>
-          <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Routes</span>
-                <span class="info-box-number">2,000</span>
+                <span class="info-box-number">{{ \App\Http\Controllers\RouteController::routesCount() }}</span>
               </div>
-              <!-- /.info-box-content -->
             </div>
-            <!-- /.info-box -->
           </div>
-          <!-- /.col -->
         </div>
-        <!-- /.row -->
-
-        <!-- /.row -->
-      </div><!--/. container-fluid -->
+        <br>
+        <div class="container-fluid">
+          <h5 style="text-align:center">Data Tabulation Section</h5>
+        </div>
+      </div>
     </section>
     @endsection()
-    <!-- /.content -->
 
 <!-- PAGE PLUGINS -->
 <!-- jQuery Mapael -->
@@ -88,4 +67,3 @@
 
 <!-- PAGE SCRIPTS -->
 <script src="{{asset('/bower_components/admin-lte/dist/js/pages/dashboard2.js')}}"></script>
-@endsection
