@@ -118,4 +118,10 @@ class RouteController extends Controller
         return view('route.create')->with(['loadings'=>$loadings,'offloadings'=>$offloading]);
 
     }
+
+    public static function routesCount()
+    {
+        $routes = Route::count();
+        print($routes);
+    }
 }

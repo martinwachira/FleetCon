@@ -97,4 +97,10 @@ class SiteController extends Controller
         // return back();
         return redirect('/sites')->with('success', 'Site Deleted');
     }
+
+    public static function sitesCount()
+    {
+        $sites = Site::count();
+        print($sites);
+    }
 }

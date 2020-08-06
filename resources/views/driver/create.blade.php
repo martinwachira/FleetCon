@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-info">Sign in</button>
+            <button type="submit" class="btn btn-info">New Driver</button>
             <button type="reset" class="btn btn-default float-right">Cancel</button>
         </div>
     </form>
