@@ -1,6 +1,13 @@
+<<<<<<< HEAD
+
+@extends('admin')
+@section('section')
+
+=======
 @extends('layouts.admin')
 
 @section('content')
+>>>>>>> 19b4035a21d6af4818f975edb1f92a9a8421bc5c
     <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -48,13 +55,12 @@
             </div>
           </div>
         </div>
-        <br>
-        <div class="container-fluid">
-          <h5 style="text-align:center">Data Tabulation Section</h5>
-        </div>
-      </div>
-    </section>
-    @endsection()
+        <!-- /.row -->
+
+        <!-- /.row -->
+      </div><!--/. container-fluid -->
+    </section>    
+    <!-- /.content -->
 
 <!-- PAGE PLUGINS -->
 <!-- jQuery Mapael -->
