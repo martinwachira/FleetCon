@@ -208,4 +208,10 @@ class TruckController extends Controller
 
         return back()->with(['update'=>true,'trucks'=>$truck]);
     }
+
+    public static function trucksCount()
+    {
+        $trucks = Truck::count();
+        print($trucks);
+    }
 }
