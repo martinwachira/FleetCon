@@ -85,9 +85,13 @@ Route::get('drivers', function () {
     return view('driver/view');
 });
 
-Route::get('/add-route', function () {
-    return view('route/create');
-});
+// Route::get('/add-route', function () {
+//     return view('route/create');
+// });
+
+// ! route to get the form to add a route. 
+
+Route::get('/add-route','RouteController@addRoute');
 
 Route::get('routes', function () {
     return view('route/view');
