@@ -69,13 +69,13 @@
                                                             <div class="form-group row">
                                                                 <label for="inputLoadBonus" class="col-sm-3 col-form-label">Loading</label>
                                                                 <div class="col-sm-8">
-                                                                    {{Form::select('loading_site', [$route->loading_site], null, ['class' => 'form-control'])}}
+                                                                    {{Form::select('loading_site', [$route->loadingSiteBelongsToSite->name], null, ['class' => 'form-control'])}}
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label for="inputLoadBonus" class="col-sm-3 col-form-label">Off Loading</label>
                                                                 <div class="col-sm-8">
-                                                                    {{Form::select('off_loading_site', [$route->off_loading_site], null, ['class' => 'form-control'])}}
+                                                                    {{Form::select('off_loading_site', [$route->offloadingSiteBelongsToSite->name], null, ['class' => 'form-control'])}}
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
