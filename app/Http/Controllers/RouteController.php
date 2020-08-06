@@ -85,7 +85,10 @@ class RouteController extends Controller
      */
     public function update(Request $request, Route $route)
     {
-        //
+        $data = $request->all();
+        $route->fill($data)->save();
+
+        return redirect('/routes')->with('success', 'ROute Updated');
     }
 
     /**
@@ -94,16 +97,23 @@ class RouteController extends Controller
      * @param  \App\Route  $route
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Route $route)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->idSite;
+        $routes = Route::where('id',$id)->get();          
+        foreach ($routes as $route) {
+            # code...
+            $route->delete();
+        }    
+        // return back();
+        return redirect('/routes')->with('success', 'Route Deleted');
     }
 
     // ! function to get the the form to add the route. 
 
     public function addRoute(){
-        $loadings = Site::where('type_of_site', 0)->get();
-        $offloading = Site::where('type_of_site', -1)->get();
+        $loadings = Site::where('type_of_site', 'Loading')->get();
+        $offloading = Site::where('type_of_site', 'Offloading')->get();
 
         return view('route.create')->with(['loadings'=>$loadings,'offloadings'=>$offloading]);
 
