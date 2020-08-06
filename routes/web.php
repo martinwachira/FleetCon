@@ -48,6 +48,13 @@ Route::post('/postFinancialData','TruckController@postFinancial');
 
 Route::resource('trucks', 'TruckController');
 
+// ! route to get the editing of a truck. 
+
+Route::get('/editTruck/{id}','TruckController@gettingEditPage');
+
+// ! updating truck. 
+
+Route::post('/updateTruck/{id}','TruckController@updateTruck');
 
 // ! route to delete truck. 
 
@@ -78,9 +85,13 @@ Route::get('drivers', function () {
     return view('driver/view');
 });
 
-Route::get('/add-route', function () {
-    return view('route/create');
-});
+// Route::get('/add-route', function () {
+//     return view('route/create');
+// });
+
+// ! route to get the form to add a route. 
+
+Route::get('/add-route','RouteController@addRoute');
 
 Route::get('routes', function () {
     return view('route/view');

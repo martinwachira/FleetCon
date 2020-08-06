@@ -48,6 +48,7 @@ class RouteController extends Controller
     public function store(Request $request, Route $route)
     {
         $data = $request->all();
+        // dd($data);
         $route->fill($data)->save();
 
         return redirect('/routes')->with('success', 'Route added');
@@ -96,5 +97,15 @@ class RouteController extends Controller
     public function destroy(Route $route)
     {
         //
+    }
+
+    // ! function to get the the form to add the route. 
+
+    public function addRoute(){
+        $loadings = Site::where('type_of_site', 0)->get();
+        $offloading = Site::where('type_of_site', -1)->get();
+
+        return view('route.create')->with(['loadings'=>$loadings,'offloadings'=>$offloading]);
+
     }
 }
