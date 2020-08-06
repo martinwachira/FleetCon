@@ -11,4 +11,16 @@ class Site extends Model
     ];
     
     public $primaryKey = 'id';
+
+    public function loadingSiteHasManyRoutes()
+    {
+        return $this->hasMany('App\Route', 'loading_site', 'id');
+    }
+
+    public function offloadingSiteHasManyRoutes()
+    {
+        return $this->hasMany('App\Route', 'off_loading_site', 'id');
+    }
+
+
 }
