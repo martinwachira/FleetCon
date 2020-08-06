@@ -1,7 +1,7 @@
 @extends('admin')
 @section('section')
 
-<div class="container">
+<section class="content">
     <h3>Add Finacial Data.</h3>
     <form action="/postFinancialData" method="POST">
         {{ csrf_field() }}
@@ -135,6 +135,6 @@
         </div>                           
     </div>
     </form>
-</div>
+</section>
 
 @endsection
