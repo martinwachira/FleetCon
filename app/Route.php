@@ -12,4 +12,15 @@ class Route extends Model
     ];
     
     public $primaryKey = 'id';
+
+    public function loadingSiteBelongsToSite()
+    {
+        return $this->belongsTo('App\Site', 'loading_site', 'id');
+    }
+
+    public function offloadingSiteBelongsToSite()
+    {
+        return $this->belongsTo('App\Site', 'off_loading_site', 'id');
+    }
+
 }

@@ -33,9 +33,15 @@
                             <tbody>
                                 @foreach($routes as $route)
                                 <tr>
+
+                                <td>{{$route->id}}</td>
+                                    <td>{{$route->loadingSiteBelongsToSite->name}}</td>
+                                    <td>{{$route->offloadingSiteBelongsToSite->name}}</td>
+
                                     <td>{{$route->id}}</td>
                                     <td>{{$route->loading_site}}</td>
                                     <td>{{$route->off_loading_site}}</td>
+
                                     <td>{{$route->distance}}</td>
                                     <td>{{$route->turn_around_time}}</td>
                                     <td>{{$route->possible_trips_per_month}}</td>
