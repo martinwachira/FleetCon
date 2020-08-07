@@ -67,15 +67,15 @@ Route::post('deleteSite', 'SiteController@destroy')->middleware('auth');
 Route::post('deleteRoute', 'RouteController@destroy')->middleware('auth');
 
 Route::get('/main', function () {
-    return view('dashboard/main')->middleware('auth');
+    return view('dashboard/main');
 });
 
 Route::get('/add-driver', function () {
-    return view('driver/create')->middleware('auth');
+    return view('driver/create');
 });
 
 Route::get('drivers', function () {
-    return view('driver/view')->middleware('auth');
+    return view('driver/view');
 });
 
 // ! route to get the form to add a route. 
@@ -83,15 +83,15 @@ Route::get('drivers', function () {
 Route::get('/add-route', 'RouteController@addRoute')->middleware('auth');
 
 Route::get('routes', function () {
-    return view('route/view')->middleware('auth');
+    return view('route/view');
 });
 
 Route::get('/add-site', function () {
-    return view('site/create')->middleware('auth');
+    return view('site/create');
 });
 
 Route::get('sites', function () {
-    return view('site/view')->middleware('auth');
+    return view('site/view');
 });
 
 // Routes here
@@ -113,24 +113,24 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 // ! Routes to the Reports. 
 
 Route::get('driver_performance', function () {
-    return view('Reports/driver_perfomance')->middleware('auth');
+    return view('Reports/driver_perfomance');
 });
 
 Route::get('fuel_usage', function () {
-    return view('Reports/fuel_usage')->middleware('auth');
+    return view('Reports/fuel_usage');
 });
 
 Route::get('route_profitability', function () {
-    return view('Reports/route_profitability')->middleware('auth');
+    return view('Reports/route_profitability');
 });
 
 Route::get('truck_availability', function () {
-    return view('Reports/truck_availability')->middleware('auth');
+    return view('Reports/truck_availability');
 });
 
 Route::get('truck_revenue', function () {
-    return view('Reports/truck_revenue')->middleware('auth');
+    return view('Reports/truck_revenue');
 });
 Route::get('route_revenue', function () {
-    return view('Reports/route_revenue')->middleware('auth');
+    return view('Reports/route_revenue');
 });
