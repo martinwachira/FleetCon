@@ -19,7 +19,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body 
+style="background-image:url('https://cdn.pixabay.com/photo/2014/07/01/12/34/street-381227_960_720.jpg');
+background-repeat: no-repeat; background-size: cover;  text-align: center">
+
     <div id="app">
         {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
