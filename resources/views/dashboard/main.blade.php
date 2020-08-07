@@ -1,13 +1,7 @@
-<<<<<<< HEAD
 
 @extends('admin')
 @section('section')
 
-=======
-@extends('layouts.admin')
-
-@section('content')
->>>>>>> 19b4035a21d6af4818f975edb1f92a9a8421bc5c
     <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -59,7 +53,7 @@
 
         <!-- /.row -->
       </div><!--/. container-fluid -->
-    </section>    
+    @endsection  
     <!-- /.content -->
 
 <!-- PAGE PLUGINS -->
