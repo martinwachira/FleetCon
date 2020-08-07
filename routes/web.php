@@ -22,10 +22,6 @@ Route::get('admin', function () {
 });
 
 
-Route::get('admin2', function () {
-    return view('dashboard.main');
-});
-
 // ! route to get the first step of adding the truck. 
 
 Route::get('addHorse','TruckController@addHorse');
