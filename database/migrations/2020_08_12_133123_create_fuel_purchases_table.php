@@ -17,9 +17,18 @@ class CreateFuelPurchasesTable extends Migration
             $table->engine = "InnoDB";
             $table->id();
             $table->unsignedBigInteger('truck_id');
-            $table->unsignedBigInteger('clock_in_id');
+
+            $table->foreign('truck_id')->references('id')->on('trucks')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->unsignedBigInteger('clock_in_id')->nullable();
+
+            $table->foreign('clock_in_id')->references('id')->on('clock_ins')->onDelete('cascade')->onUpdate('cascade');
+
             $table->unsignedBigInteger('user_id');
-            $table->bigInteger('mileage');
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->bigInteger('mileage')->nullable();
             $table->bigInteger('litres_purchased');            
             $table->timestamps();
         });

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\FuelPurchases;
 use Illuminate\Http\Request;
-
+use App\Http\Resources\FuelPurchaseResource;
+use App\Http\Resources\FuelPurchaseResourceCollection;
+use Illuminate\Support\Facades\Validator;
 class FuelPurchasesController extends Controller
 {
     /**
@@ -15,6 +17,7 @@ class FuelPurchasesController extends Controller
     public function index()
     {
         //
+        return response(FuelPurchaseResourceCollection::collection(FuelPurchases::all()),200);
     }
 
     /**
@@ -35,7 +38,28 @@ class FuelPurchasesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         //! storing a single company.
+         $validator = Validator::make($request->all(), [
+            'truck_id' => 'required|exists:trucks,id',
+            'clock_in_id' => 'exists:clock_ins,id',
+            'user_id' => 'required|exists:users,id',
+            'mileage'=> 'integer',
+            'litres_purchased'=> 'integer|required'
+        ]);
+
+        if ($validator->fails()) {
+            
+            // ! return the errors that have been gotten from posting the data.
+
+            return response($validator->errors(),250);
+
+        }
+
+        $fuelPurchases = new FuelPurchases();
+        $fuelPurchases->fill($request->all())->save();
+
+        return response('Successfully Added A Fuel Purchase.',200);
+
     }
 
     /**
@@ -44,9 +68,16 @@ class FuelPurchasesController extends Controller
      * @param  \App\FuelPurchases  $fuelPurchases
      * @return \Illuminate\Http\Response
      */
-    public function show(FuelPurchases $fuelPurchases)
+    public function show($fuelPurchases)
     {
         //
+        $fuelPurchasesArray = FuelPurchases::where('id',$fuelPurchases)->get();
+        $newFuelPurchases = null;
+        foreach ($fuelPurchasesArray as $fuelPurchase) {
+            # code...
+            $newFuelPurchases = $fuelPurchase;
+        }
+        return response(new FuelPurchaseResource($newFuelPurchases),200);
     }
 
     /**
@@ -67,9 +98,35 @@ class FuelPurchasesController extends Controller
      * @param  \App\FuelPurchases  $fuelPurchases
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, FuelPurchases $fuelPurchases)
+    public function update(Request $request, $fuelPurchases)
     {
         //
+        //! storing a single company.
+        $validator = Validator::make($request->all(), [
+            'truck_id' => 'exists:trucks,id',
+            'clock_in_id' => 'exists:clock_ins,id',
+            'user_id' => 'exists:users,id',
+            'mileage'=> 'integer',
+            'litres_purchased'=> 'integer'
+        ]);
+
+        if ($validator->fails()) {
+            
+            // ! return the errors that have been gotten from posting the data.
+
+            return response($validator->errors(),250);
+
+        }
+
+        $fuelPurchasesArray = FuelPurchases::where('id',$fuelPurchases)->get();        
+        foreach ($fuelPurchasesArray as $fuelPurchase) {
+            # code...
+            $fuelPurchase->update($request->all());
+        }
+
+        
+        return response('Successfully Updated A Fuel Purchase.',200);
+
     }
 
     /**
@@ -78,8 +135,15 @@ class FuelPurchasesController extends Controller
      * @param  \App\FuelPurchases  $fuelPurchases
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FuelPurchases $fuelPurchases)
+    public function destroy($fuelPurchases)
     {
         //
+        $fuelPurchasesArray = FuelPurchases::where('id',$fuelPurchases)->get();        
+        foreach ($fuelPurchasesArray as $fuelPurchase) {
+            # code...
+            $fuelPurchase->delete();
+        }
+        
+        return response('Successfully Deleted A Fuel Purchase.',200);
     }
 }

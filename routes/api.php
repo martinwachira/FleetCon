@@ -19,3 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('/clock_ins','ClockInController');
+Route::apiResource('/fuel_purchase','FuelPurchasesController');
+
