@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function UserHasManyClockIns()
+    {
+        return $this->hasMany('App\ClockIns', 'user_id', 'id');
+    }
 }

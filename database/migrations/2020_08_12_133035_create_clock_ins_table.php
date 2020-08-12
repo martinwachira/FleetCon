@@ -16,9 +16,16 @@ class CreateClockInsTable extends Migration
         Schema::create('clock_ins', function (Blueprint $table) {
             $table->engine = "InnoDB";
             $table->id();
+            $table->unsignedBigInteger('user_id');            
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+
             $table->unsignedBigInteger('truck_id');
-            $table->bigInteger('clock_in_milage');
-            $table->bigInteger('clock_out_milage');
+
+            $table->foreign('truck_id')->references('id')->on('trucks')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->bigInteger('clock_in_milage')->nullable();
+            $table->bigInteger('clock_out_milage')->nullable();
             $table->timestamps();
 
         });
