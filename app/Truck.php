@@ -8,4 +8,9 @@ class Truck extends Model
 {
     //
     protected $guarded = ['id'];
+
+    public function TruckHaManyClockIns()
+    {
+        return $this->hasMany('App\ClockIns', 'truck_id', 'id');
+    }
 }
