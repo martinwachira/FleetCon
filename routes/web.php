@@ -66,21 +66,24 @@ Route::post('deleteSite', 'SiteController@destroy')->middleware('auth');
 // ! route to delete a site
 Route::post('deleteRoute', 'RouteController@destroy')->middleware('auth');
 
-Route::get('/main', function () {
-    return view('dashboard/main');
-});
-
-Route::get('/add-driver', function () {
-    return view('driver/create');
-});
-
-Route::get('drivers', function () {
-    return view('driver/view');
-});
-
 // ! route to get the form to add a route. 
 
 Route::get('/add-route', 'RouteController@addRoute')->middleware('auth');
+
+// Routes here
+Route::resource('/drivers', 'DriverController')->middleware('auth');
+Route::post('add-driver', 'DriverController@store')->middleware('auth');
+
+Route::resource('/routes', 'RouteController')->middleware('auth');
+Route::post('add-route', 'RouteController@store')->middleware('auth');
+Route::get('getSites', 'RouteController@getSites')->middleware('auth');
+
+
+Route::resource('/sites', 'SiteController');
+Route::post('add-site', 'SiteController@store');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::get('routes', function () {
     return view('route/view');
@@ -94,21 +97,17 @@ Route::get('sites', function () {
     return view('site/view');
 });
 
-// Routes here
-Route::resource('/drivers', 'DriverController')->middleware('auth');
-Route::post('add-driver', 'DriverController@store')->middleware('auth');
+Route::get('/main', function () {
+    return view('dashboard/main');
+});
 
-Route::resource('/routes', 'RouteController')->middleware('auth');
-Route::post('add-route', 'RouteController@store')->middleware('auth');
-Route::get('getSites', 'RouteController@getSites')->middleware('auth');
+Route::get('/add-driver', function () {
+    return view('driver/create');
+});
 
-
-Route::resource('/sites', 'SiteController')->middleware('auth');
-Route::post('add-site', 'SiteController@store')->middleware('auth');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('drivers', function () {
+    return view('driver/view');
+});
 
 // ! Routes to the Reports. 
 
@@ -133,4 +132,9 @@ Route::get('truck_revenue', function () {
 });
 Route::get('route_revenue', function () {
     return view('Reports/route_revenue');
+});
+
+//users
+Route::get('/register', function(){
+    return view('Settings/Users/register');
 });
