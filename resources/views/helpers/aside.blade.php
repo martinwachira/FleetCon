@@ -164,14 +164,14 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{url('/register')}}" class="nav-link">
+                  <a href="{{ route('register') }}" class="nav-link">
                   &nbsp; &nbsp; &nbsp;
                     <i class="far fa-circle nav-icon"></i>
                     <p>Add User</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{url('#')}}" class="nav-link">
+                  <a href="{{url('/users')}}" class="nav-link">
                   &nbsp; &nbsp; &nbsp;
                     <i class="far fa-circle nav-icon"></i>
                     <p>View Users</p>

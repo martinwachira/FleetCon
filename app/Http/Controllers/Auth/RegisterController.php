@@ -41,6 +41,15 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function index()
+    {
+
+        $allusers = User::all();
+
+        return view('Settings/Users.view')->with(['users'=>$allusers]);
+        // return response()->json($allusers);
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -70,4 +79,6 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    
 }

@@ -23,6 +23,7 @@ Route::get('admin', function () {
 
 Auth::routes();
 
+
 // ! route to get the first step of adding the truck. 
 
 Route::get('addHorse', 'TruckController@addHorse')->middleware('auth');
@@ -84,7 +85,6 @@ Route::post('add-site', 'SiteController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::get('routes', function () {
     return view('route/view');
 });
@@ -134,7 +134,4 @@ Route::get('route_revenue', function () {
     return view('Reports/route_revenue');
 });
 
-//users
-Route::get('/register', function(){
-    return view('Settings/Users/register');
-});
+Route::get('users', 'Auth\RegisterController@index');
