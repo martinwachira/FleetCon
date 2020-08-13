@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         factory('App\Site',5)->create();
         factory('App\Route',5)->create();
         factory('App\Truck',5)->create();
+        factory('App\User',5)->create();
     }
 }
