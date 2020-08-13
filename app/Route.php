@@ -23,4 +23,9 @@ class Route extends Model
         return $this->belongsTo('App\Site', 'off_loading_site', 'id');
     }
 
+    public function RouteHasManyLoadTruck()
+    {
+        return $this->hasMany('App\LoadTrucks', 'route_id', 'id');
+    }
+
 }
