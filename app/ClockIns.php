@@ -16,4 +16,8 @@ class ClockIns extends Model
     {
         return $this->belongsTo('App\User', 'user_id', 'id');
     }
+    public function ClockInsHasOneLoadTruck()
+    {
+        return $this->hasOne('App\LoadTrucks', 'clock_in_id', 'id');
+    }
 }
