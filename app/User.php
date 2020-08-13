@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\ClockIns', 'user_id', 'id');
     }
+
+    public function UserHasManyLoadTrucks()
+    {
+        return $this->hasMany('App\LoadTrucks', 'user_id', 'id');
+    }
 }

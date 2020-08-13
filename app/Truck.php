@@ -13,4 +13,9 @@ class Truck extends Model
     {
         return $this->hasMany('App\ClockIns', 'truck_id', 'id');
     }
+
+    public function TruckHasManyLoadTrucks()
+    {
+        return $this->hasMany('App\LoadTrucks', 'truck_id', 'id');
+    }
 }
