@@ -180,7 +180,7 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a href="{{url('#')}}" class="nav-link">
+              <a href="{{url('/products')}}" class="nav-link">
                 &nbsp; &nbsp; &nbsp;
                 <i class="fas fa-tags"></i>
                 &nbsp;<p>Products</p>
@@ -195,7 +195,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{url('#')}}" class="nav-link">
+                  <a href="{{url('/products')}}" class="nav-link">
                   &nbsp; &nbsp; &nbsp;
                     <i class="far fa-circle nav-icon"></i>
                     <p>View Products</p>

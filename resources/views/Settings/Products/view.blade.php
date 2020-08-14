@@ -1,5 +1,7 @@
 @extends('admin')
 @section('section')
+
+{{-- {{$products}} --}}
 <section class="content">
     <div class="card card-success">
         <div class="card-header">
@@ -16,8 +18,6 @@
                     <div class="col-sm-12">
                         <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
                             <thead>
-                                {!! Form::open(['action' => 'ProductController@index', 'method' => 'GET', 'enctype' => 'multipart/form-data']) !!}
-                                @csrf
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
