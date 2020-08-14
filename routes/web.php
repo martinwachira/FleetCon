@@ -67,34 +67,32 @@ Route::post('deleteSite', 'SiteController@destroy')->middleware('auth');
 // ! route to delete a site
 Route::post('deleteRoute', 'RouteController@destroy')->middleware('auth');
 
+// ! route to delete a driver
+Route::post('deleteProduct', 'ProductController@destroy')->middleware('auth');
+
 // ! route to get the form to add a route. 
 
 Route::get('/add-route', 'RouteController@addRoute')->middleware('auth');
 
 // Routes here
-Route::resource('/drivers', 'DriverController')->middleware('auth');
+Route::resource('drivers', 'DriverController')->middleware('auth');
 Route::post('add-driver', 'DriverController@store')->middleware('auth');
 
-Route::resource('/routes', 'RouteController')->middleware('auth');
+Route::resource('products', 'ProductController')->middleware('auth');
+Route::post('add-product', 'ProductController@store')->middleware('auth');
+
+Route::resource('routes', 'RouteController')->middleware('auth');
 Route::post('add-route', 'RouteController@store')->middleware('auth');
 Route::get('getSites', 'RouteController@getSites')->middleware('auth');
 
 
-Route::resource('/sites', 'SiteController');
+Route::resource('sites', 'SiteController')->middleware('auth');
 Route::post('add-site', 'SiteController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('routes', function () {
-    return view('route/view');
-});
-
 Route::get('/add-site', function () {
     return view('site/create');
-});
-
-Route::get('sites', function () {
-    return view('site/view');
 });
 
 Route::get('/main', function () {
@@ -105,8 +103,8 @@ Route::get('/add-driver', function () {
     return view('driver/create');
 });
 
-Route::get('drivers', function () {
-    return view('driver/view');
+Route::get('/add-product', function () {
+    return view('Settings/Products/create');
 });
 
 // ! Routes to the Reports. 

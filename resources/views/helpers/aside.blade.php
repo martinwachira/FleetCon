@@ -188,7 +188,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{url('#')}}" class="nav-link">
+                  <a href="{{url('/add-product')}}" class="nav-link">
                   &nbsp; &nbsp; &nbsp;
                     <i class="far fa-circle nav-icon"></i>
                     <p>Add Product</p>
