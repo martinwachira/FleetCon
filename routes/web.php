@@ -25,11 +25,9 @@ Auth::routes();
 
 
 // ! route to get the first step of adding the truck. 
-
 Route::get('addHorse', 'TruckController@addHorse')->middleware('auth');
 
 // ! route to post horse data. 
-
 Route::post('/postHorseData', 'TruckController@postHorseData')->middleware('auth');
 
 // ! route to post trailer data. 
@@ -39,24 +37,19 @@ Route::post('/postTrailerData', 'TruckController@postAddTrailerData')->middlewar
 Route::get('addTrailer', 'TruckController@gettingAddTrailer')->middleware('auth');
 
 // ! posting financial data. 
-
 Route::post('/postFinancialData', 'TruckController@postFinancial')->middleware('auth');
 
 // ! route to get all the trucks. 
-
 Route::resource('trucks', 'TruckController')->middleware('auth');
 
 // ! route to get the editing of a truck. 
-
 Route::get('/editTruck/{id}', 'TruckController@gettingEditPage')->middleware('auth');
 
 // ! updating truck. 
-
 Route::post('/updateTruck/{id}', 'TruckController@updateTruck')->middleware('auth');
 
 // ! route to delete truck. 
 Route::post('deleteTruck', 'TruckController@destroy')->middleware('auth');
-
 
 // ! route to delete a driver
 Route::post('deleteDriver', 'DriverController@destroy')->middleware('auth');
@@ -67,34 +60,31 @@ Route::post('deleteSite', 'SiteController@destroy')->middleware('auth');
 // ! route to delete a site
 Route::post('deleteRoute', 'RouteController@destroy')->middleware('auth');
 
+// ! route to delete a driver
+Route::post('deleteProduct', 'ProductController@destroy')->middleware('auth');
+
 // ! route to get the form to add a route. 
 
 Route::get('/add-route', 'RouteController@addRoute')->middleware('auth');
 
 // Routes here
-Route::resource('/drivers', 'DriverController')->middleware('auth');
+Route::resource('drivers', 'DriverController')->middleware('auth');
 Route::post('add-driver', 'DriverController@store')->middleware('auth');
 
-Route::resource('/routes', 'RouteController')->middleware('auth');
+Route::resource('products', 'ProductController')->middleware('auth');
+Route::post('add-product', 'ProductController@store')->middleware('auth');
+
+Route::resource('routes', 'RouteController')->middleware('auth');
 Route::post('add-route', 'RouteController@store')->middleware('auth');
 Route::get('getSites', 'RouteController@getSites')->middleware('auth');
 
-
-Route::resource('/sites', 'SiteController');
+Route::resource('sites', 'SiteController')->middleware('auth');
 Route::post('add-site', 'SiteController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('routes', function () {
-    return view('route/view');
-});
-
 Route::get('/add-site', function () {
     return view('site/create');
-});
-
-Route::get('sites', function () {
-    return view('site/view');
 });
 
 Route::get('/main', function () {
@@ -105,8 +95,8 @@ Route::get('/add-driver', function () {
     return view('driver/create');
 });
 
-Route::get('drivers', function () {
-    return view('driver/view');
+Route::get('/add-product', function () {
+    return view('Settings/Products/create');
 });
 
 // ! Routes to the Reports. 
