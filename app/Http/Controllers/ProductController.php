@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Driver;
 use Illuminate\Http\Request;
+use App\Product;
 
-class DriverController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,8 @@ class DriverController extends Controller
      */
     public function index()
     {
-
-        $drivers = Driver::all();
-
-        return view('driver.view')->with('drivers', $drivers);
+        $products = Product::all();
+        return view('Settings.Products.view')->with('products', $products);
     }
 
     /**
@@ -36,21 +34,21 @@ class DriverController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Driver $driver)
+    public function store(Request $request, Product $product)
     {
         $data = $request->all();
-        $driver->fill($data)->save();
+        $product->fill($data)->save();
 
-        return redirect('/drivers')->with('success', 'Driver added');
+        return redirect('/products')->with('success', 'Product added');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Driver  $driver
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Driver $driver)
+    public function show($id)
     {
         //
     }
@@ -58,10 +56,10 @@ class DriverController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Driver  $driver
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Driver $driver)
+    public function edit($id)
     {
         //
     }
@@ -70,38 +68,36 @@ class DriverController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Driver  $driver
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Driver $driver)
+    public function update(Request $request, Product $product)
     {
         $data = $request->all();
-        $driver->fill($data)->save();
+        $product->fill($data)->save();
 
-        return redirect('/drivers')->with('success', 'Driver Updated');
+        return redirect('/products')->with('success', 'Product Updated');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Driver  $driver
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)
     {
-        $id = $request->idDriver;
-        $drivers = Driver::where('id',$id)->get();          
-        foreach ($drivers as $driver) {
-            # code...
-            $driver->delete();
+        $id = $request->idProduct;
+        $products = Product::where('id',$id)->get();          
+        foreach ($products as $product) {
+            $product->delete();
         }    
-        // return back();
-        return redirect('/drivers')->with('success', 'Driver Removed');
+        return redirect('/products')->with('success', 'Product Removed');
     }
 
     public static function driversCount()
     {
-        $driversC = Driver::count();
-        print($driversC);
+        $productsC = Product::count();
+        print($productsC);
     }
 }
