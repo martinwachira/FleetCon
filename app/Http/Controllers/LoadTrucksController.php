@@ -39,29 +39,14 @@ class LoadTrucksController extends Controller
     public function store(Request $request)
     {                
         //! storing a single company.
-        // $validator = Validator::make($request->all(), [
-        //     'truck_id'=> 'required|exists:trucks,id',
-        //     'clock_in_id'=> 'required|exists:clock_ins,id',
-        //     'user_id'=> 'required|exits:users,id',
-        //     'route_id'=> 'exits:routes,id',            
-        //     'loading_tonnage'=> 'integer',                        
-        //     'offloading_tonnage'=> 'integer',            
-        // ]);
-
-        // if ($validator->fails()) {
-            
-        //     // ! return the errors that have been gotten from posting the data.
-
-        //     return response($validator->errors(),250);
-
-        // }
+       
 
          //! storing a single company.
          $validator = Validator::make($request->all(), [
             'truck_id'=> 'required|exists:trucks,id',
             'clock_in_id'=> 'required|exists:clock_ins,id',
-            'user_id'=> 'required|exits:users,id',
-            'route_id'=> 'exits:routes,id',            
+            'user_id'=> 'required|exists:users,id',
+            'route_id'=> 'exists:routes,id',            
             'loading_tonnage'=> 'integer',                        
             'offloading_tonnage'=> 'integer',
         ]);
@@ -123,7 +108,7 @@ class LoadTrucksController extends Controller
             'truck_id'=> 'exists:trucks,id',
             'clock_in_id'=> 'exists:clock_ins,id',
             'user_id'=> 'exists:users,id',
-            'route_id'=> 'exits:routes,id',            
+            'route_id'=> 'exists:routes,id',            
             'loading_tonnage'=> 'integer',                        
             'offloading_tonnage'=> 'integer',            
         ]);
