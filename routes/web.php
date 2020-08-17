@@ -124,8 +124,10 @@ Route::get('route_revenue', function () {
     return view('Reports/route_revenue');
 });
 
-Route::get('users', 'Auth\RegisterController@index');
+// Route::get('users', 'Auth\RegisterController@index');
 
 Route::get('/addUser','HomeController@addUser');
 
 Route::post('postingAddUser','HomeController@postAddUser');
+
+Route::get('/users','HomeController@users');

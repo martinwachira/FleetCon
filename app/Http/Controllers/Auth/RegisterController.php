@@ -44,10 +44,6 @@ class RegisterController extends Controller
     public function index()
     {
 
-        $allusers = User::all();
-
-        return view('Settings/Users.view')->with(['users'=>$allusers]);
-        // return response()->json($allusers);
     }
 
     /**
