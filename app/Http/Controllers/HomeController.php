@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -25,4 +25,21 @@ class HomeController extends Controller
     {
         return view('dashboard/main');
     }
+
+    public function addUser(){
+        return view('auth.register');
+    }
+
+    public function postAddUser(Request $request){
+
+        
+        
+        $newUser = new User();
+        $newUser->from_api = 0;
+        $newUser->verify_password = 0;
+        $newUser->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi';
+        $newUser->fill($request->all())->save();                
+        return back();
+    }
+    
 }
