@@ -125,3 +125,7 @@ Route::get('route_revenue', function () {
 });
 
 Route::get('users', 'Auth\RegisterController@index');
+
+Route::get('/addUser','HomeController@addUser');
+
+Route::post('postingAddUser','HomeController@postAddUser');

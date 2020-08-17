@@ -164,7 +164,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{ route('register') }}" class="nav-link">
+                  <a href="/addUser" class="nav-link">
                   &nbsp; &nbsp; &nbsp;
                     <i class="far fa-circle nav-icon"></i>
                     <p>Add User</p>
