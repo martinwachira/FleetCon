@@ -30,10 +30,7 @@ class HomeController extends Controller
         return view('auth.register');
     }
 
-    public function postAddUser(Request $request){
-
-        
-        
+    public function postAddUser(Request $request){                
         $newUser = new User();
         $newUser->from_api = 0;
         $newUser->verify_password = 0;
