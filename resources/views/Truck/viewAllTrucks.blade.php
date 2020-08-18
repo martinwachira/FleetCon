@@ -21,7 +21,7 @@
                   <th>Truck Id</th>
                   <th>Fleet Number</th>
                   <th>Registration</th>
-                  <th>Next Service</th>
+                  <th>Make</th>
                   <th>Courier Milage</th>
                   <th>Rotran Expiry</th>
                   <th>COF Expiry</th>
@@ -34,7 +34,7 @@
                   <td>{{$truck->id}}</td>
                   <td>{{$truck->fleet_number}}</td>
                   <td>{{$truck->horse_registration}}</td>
-                  <td>{{"Next Service"}}</td>
+                  <td>{{$truck->make}}</td>
                   <td>{{$truck->start_milage}}</td>
                   <td>
                     @php
