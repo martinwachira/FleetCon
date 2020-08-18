@@ -19,40 +19,40 @@ class CreateTrucksTable extends Migration
             $table->timestamps();
 
             // ! horse details.
-            $table->bigInteger("fleet_number");
-            $table->text("make");
-            $table->text("model");
-            $table->bigInteger("vin_number");
-            $table->bigInteger("engine_number");
-            $table->bigInteger("horse_registration");
-            $table->bigInteger("start_milage");
-            $table->bigInteger("service_intervals");
-            $table->date("cof_expiry_date");
-            $table->date("rotran_expiry_date");
-            $table->text("truck_owner");
-            $table->text("bulk_product");
-            $table->bigInteger("load_capacity");
-            $table->bigInteger("working_days_per_month");
+            $table->longText("fleet_number")->nullable();
+            $table->text("make")->nullable();
+            $table->text("model")->nullable();
+            $table->bigInteger("vin_number")->nullable();
+            $table->bigInteger("engine_number")->nullable();
+            $table->bigInteger("horse_registration")->nullable();
+            $table->bigInteger("start_milage")->nullable();
+            $table->bigInteger("service_intervals")->nullable();
+            $table->date("cof_expiry_date")->nullable();
+            $table->date("rotran_expiry_date")->nullable();
+            $table->text("truck_owner")->nullable();
+            $table->text("bulk_product")->nullable();
+            $table->bigInteger("load_capacity")->nullable();
+            $table->bigInteger("working_days_per_month")->nullable();
 
             // ! trailer details. 
-            $table->bigInteger("leader_registration");
-            $table->date("trailer_cof_expiry_date");
-            $table->date("trailer_rotran_expiry_date");
+            $table->bigInteger("leader_registration")->nullable();
+            $table->date("trailer_cof_expiry_date")->nullable();
+            $table->date("trailer_rotran_expiry_date")->nullable();
 
             // ! follower details.
-            $table->bigInteger("follower_registration");
-            $table->date("follower_cof_expiry_date");
-            $table->date("follower_rotran_expiry_date");
+            $table->bigInteger("follower_registration")->nullable();
+            $table->date("follower_cof_expiry_date")->nullable();
+            $table->date("follower_rotran_expiry_date")->nullable();
 
             // ! financial data. 
-            $table->bigInteger("horse_installment");
-            $table->bigInteger("trailer_installment");
-            $table->bigInteger("horse_insurance");
-            $table->bigInteger("trailer_insurance");
-            $table->bigInteger("tracker_cost");
-            $table->bigInteger("fleet_con_premiums");
-            $table->bigInteger("mobile_airtime_and_data_cost");
-            $table->bigInteger("maintenance_rate");
+            $table->bigInteger("horse_installment")->nullable();
+            $table->bigInteger("trailer_installment")->nullable();
+            $table->bigInteger("horse_insurance")->nullable();
+            $table->bigInteger("trailer_insurance")->nullable();
+            $table->bigInteger("tracker_cost")->nullable();
+            $table->bigInteger("fleet_con_premiums")->nullable();
+            $table->bigInteger("mobile_airtime_and_data_cost")->nullable();
+            $table->bigInteger("maintenance_rate")->nullable();
 
         });
     }
